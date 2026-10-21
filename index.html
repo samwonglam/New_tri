@@ -44,7 +44,7 @@
     }
 
     .notebook-shell {
-      max-width: 1140px;
+      max-width: 1120px;
       margin: 0 auto;
       background: var(--paper);
       border: 3px solid var(--ink-brown);
@@ -53,7 +53,6 @@
       overflow: hidden;
     }
 
-    /* 頂部標題列 */
     .top-deco-bar {
       background: linear-gradient(90deg, #fce7f3 0%, #e0f2fe 50%, #fef9c3 100%);
       border-bottom: 3px dashed var(--ink-brown);
@@ -87,6 +86,7 @@
       align-items: center;
       justify-content: center;
       box-shadow: 0 3px 0 rgba(74, 55, 40, 0.16);
+      flex-shrink: 0;
     }
 
     .title-text h1 {
@@ -104,7 +104,7 @@
     .reward-counter {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       background: #fff;
       border: 2.5px solid var(--ink-brown);
       border-radius: 999px;
@@ -114,7 +114,6 @@
       font-weight: 800;
     }
 
-    /* 步驟 1：輸入目標面積 */
     .mission-bar {
       margin: 14px 18px 0;
       padding: 12px 16px;
@@ -216,13 +215,18 @@
     .btn-pink { background: #fbcfe8; }
     .btn-blue { background: #bae6fd; }
     .btn-yellow { background: #fef08a; }
-    .btn-green { background: #bbf7d0; }
 
     .preset-group {
       display: flex;
       align-items: center;
       gap: 6px;
       flex-wrap: wrap;
+    }
+
+    .preset-label {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--ink-muted);
     }
 
     .preset-chip {
@@ -241,7 +245,6 @@
       color: #fff;
     }
 
-    /* 主工作區 */
     .workspace {
       display: grid;
       grid-template-columns: 1.3fr 1fr;
@@ -274,6 +277,9 @@
     }
 
     .step-progress {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       background: var(--hachi-blue-light);
       border: 2px solid var(--ink-brown);
       border-radius: 999px;
@@ -286,7 +292,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 0.85rem;
+      font-size: 0.86rem;
       font-weight: 800;
       background: #fef9c3;
       border: 2px solid var(--ink-brown);
@@ -305,7 +311,7 @@
     .gentle-banner, .obtuse-banner {
       display: none;
       margin-bottom: 10px;
-      padding: 10px 14px;
+      padding: 10px 12px;
       border-radius: 14px;
       font-size: 0.92rem;
       font-weight: 800;
@@ -355,16 +361,16 @@
       align-items: center;
       justify-content: space-between;
       gap: 8px;
-      margin-top: 12px;
+      margin-top: 10px;
     }
 
     .tool-left, .tool-right {
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
       gap: 8px;
     }
 
-    /* 右欄引導區 */
     .side-panel {
       display: flex;
       flex-direction: column;
@@ -396,15 +402,16 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      box-shadow: 0 3px 0 #e5d0c5;
     }
 
     .speech-bubble {
       background: #fff;
       border: 2.5px solid var(--ink-brown);
       border-radius: 16px;
-      padding: 10px 14px;
+      padding: 10px 12px;
       flex: 1;
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       font-weight: 800;
     }
 
@@ -433,6 +440,10 @@
       border-radius: 14px;
     }
 
+    .big-check-btn:hover:not(:disabled) {
+      background: #ec4899;
+    }
+
     .feedback-box {
       background: #fff;
       border: 2.5px solid var(--ink-brown);
@@ -450,7 +461,7 @@
       padding: 4px 12px;
       border-radius: 999px;
       border: 2px solid var(--ink-brown);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .status-wait { background: #f3f4f6; }
@@ -469,8 +480,14 @@
     .guide-step.step-yellow { background: var(--usagi-yellow-light); }
 
     .guide-step-title {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .guide-step p {
+      font-size: 0.9rem;
+      font-weight: 700;
       margin-bottom: 6px;
     }
 
@@ -479,7 +496,7 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 6px;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 800;
     }
 
@@ -488,69 +505,53 @@
       padding: 4px;
       border: 2px solid var(--ink-brown);
       border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 900;
+      font-size: 0.95rem;
+      font-weight: 800;
       text-align: center;
       background: #fff;
     }
 
     .quiz-msg {
-      margin-top: 6px;
-      font-size: 0.88rem;
+      margin-top: 5px;
+      font-size: 0.86rem;
       font-weight: 800;
     }
+
     .quiz-msg.ok { color: #15803d; }
     .quiz-msg.err { color: #be123c; }
 
-    /* 已換領的表揚卡縮圖區 */
-    .card-gallery {
-      margin-top: 12px;
-      padding-top: 10px;
-      border-top: 2px dashed var(--line-soft);
-      display: none;
+    .stamp-victory {
+      border: 2.5px dashed #16a34a;
+      background: #f0fdf4;
+      border-radius: 14px;
+      padding: 10px;
+      margin-top: 6px;
+      text-align: center;
     }
 
-    .card-gallery.show {
-      display: block;
+    .formula-badge {
+      background: #fff;
+      border: 2px solid var(--ink-brown);
+      border-radius: 10px;
+      padding: 8px;
+      font-weight: 900;
+      font-size: 1.02rem;
+      margin: 6px 0;
     }
 
-    .thumb-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 8px;
-    }
-
-    .card-thumb-item {
+    .obtuse-unlock-card {
+      margin-top: 10px;
+      background: linear-gradient(135deg, #fef9c3 0%, #e0f2fe 100%);
       border: 2.5px solid var(--ink-brown);
-      border-radius: 12px;
-      padding: 4px;
-      background: #fffbeb;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 3px 0 #e5d0c5;
-      transition: transform 0.12s;
+      border-radius: 14px;
+      padding: 10px;
     }
 
-    .card-thumb-item:hover {
-      transform: scale(1.04);
-    }
-
-    .card-thumb-item img {
-      width: 48px;
-      height: 60px;
-      object-fit: cover;
-      border-radius: 6px;
-      border: 1.5px solid var(--ink-brown);
-    }
-
-    /* 答對彈出讚賞與換卡視窗 (Modal) */
-    .modal-overlay {
+    /* ====== 答對彈出獎勵卡視窗 (Modal) ====== */
+    .reward-modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(74, 55, 40, 0.58);
+      background: rgba(74, 55, 40, 0.65);
       backdrop-filter: blur(3px);
       display: none;
       align-items: center;
@@ -559,80 +560,70 @@
       padding: 16px;
     }
 
-    .modal-overlay.show {
+    .reward-modal-backdrop.show {
       display: flex;
+      animation: popIn 0.25s ease-out;
     }
 
-    .modal-card {
-      background: #fff;
-      border: 3.5px solid var(--ink-brown);
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .reward-modal-card {
+      background: #fffdf9;
+      border: 4px solid var(--ink-brown);
       border-radius: 26px;
       max-width: 480px;
       width: 100%;
       padding: 20px;
       text-align: center;
-      box-shadow: 0 10px 0 #d9c3b6, 0 20px 40px rgba(0, 0, 0, 0.25);
-      animation: popIn 0.22s ease-out;
+      box-shadow: 0 10px 0 #d9c3b6, 0 20px 40px rgba(0,0,0,0.25);
       max-height: 92vh;
       overflow-y: auto;
     }
 
-    @keyframes popIn {
-      from { transform: scale(0.85); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
-    .modal-title {
+    .reward-modal-title {
       font-size: 1.45rem;
       font-weight: 900;
-      color: #15803d;
-      margin: 6px 0;
+      color: #be185d;
+      margin-bottom: 6px;
     }
 
-    .modal-formula {
-      background: #fef9c3;
+    .reward-modal-sub {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--ink-brown);
+      background: #fef08a;
       border: 2px solid var(--ink-brown);
       border-radius: 12px;
-      padding: 8px 12px;
-      font-size: 1.08rem;
-      font-weight: 900;
-      margin: 10px 0;
+      padding: 6px 12px;
+      display: inline-block;
+      margin-bottom: 12px;
     }
 
-    .reward-card-showcase {
-      display: none;
-      margin: 12px auto;
-      padding: 10px;
-      background: linear-gradient(135deg, #fef9c3 0%, #fce7f3 100%);
-      border: 2.5px solid var(--ink-brown);
-      border-radius: 18px;
+    .reward-img-box {
+      background: #fff;
+      border: 3px solid var(--ink-brown);
+      border-radius: 16px;
+      padding: 8px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 0 #e5d0c5;
     }
 
-    .reward-card-showcase.show {
-      display: block;
-    }
-
-    .reward-card-showcase img {
-      max-width: 240px;
+    .reward-img-box img {
       width: 100%;
-      height: auto;
+      max-height: 360px;
+      object-fit: contain;
       border-radius: 10px;
-      border: 2px solid var(--ink-brown);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-    }
-
-    .modal-actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 14px;
+      display: block;
+      margin: 0 auto;
     }
   </style>
 </head>
 <body>
   <div class="notebook-shell">
-    <!-- 頂部：五年級三角形面積 -->
+    <!-- 頂部標題 -->
     <header class="top-deco-bar">
       <div class="title-group">
         <div class="chii-avatars" aria-hidden="true">
@@ -645,4 +636,1042 @@
               <ellipse cx="45" cy="39" rx="4.5" ry="2.6" fill="#f9a8d4"/>
               <circle cx="24" cy="33" r="3" fill="#4a3728"/>
               <circle cx="40" cy="33" r="3" fill="#4a3728"/>
-              <path d="M29 38 Q32 41
+              <path d="M29 38 Q32 41 35 38" fill="none" stroke="#4a3728" stroke-width="2.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="avatar-badge">
+            <svg width="38" height="38" viewBox="0 0 64 64">
+              <polygon points="12,24 16,8 27,18" fill="#7dd3fc" stroke="#4a3728" stroke-width="3.5" stroke-linejoin="round"/>
+              <polygon points="52,24 48,8 37,18" fill="#7dd3fc" stroke="#4a3728" stroke-width="3.5" stroke-linejoin="round"/>
+              <circle cx="32" cy="36" r="21" fill="#fff" stroke="#4a3728" stroke-width="3.5"/>
+              <path d="M13,27 Q24,25 32,16 Q40,25 51,27 A21,21 0 0,0 13,27 Z" fill="#7dd3fc"/>
+              <circle cx="24" cy="34" r="3" fill="#4a3728"/>
+              <circle cx="40" cy="34" r="3" fill="#4a3728"/>
+              <path d="M29 39 Q32 42 35 39" fill="none" stroke="#4a3728" stroke-width="2.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="title-text">
+          <h1>五年級三角形面積</h1>
+          <p>1. 輸入面積 ➔ 2. 畫 3 條直線 ➔ 3. 按「檢查答案」換獎勵卡！</p>
+        </div>
+      </div>
+
+      <div class="reward-counter">
+        <span>🏆 答對次數：<strong id="stampCount">0</strong> 次</span>
+        <button type="button" class="btn btn-yellow" id="viewRewardCardBtn" style="display:none; padding:4px 10px; font-size:0.82rem;">
+          🎁 查看獎勵卡
+        </button>
+      </div>
+    </header>
+
+    <!-- 第 1 步：輸入面積 -->
+    <section class="mission-bar">
+      <div class="mission-left">
+        <span class="step-tag">第 1 步</span>
+        <label for="targetAreaInput" class="mission-label">輸入三角形面積（整數）：</label>
+        <div class="area-input-box">
+          <input type="number" id="targetAreaInput" min="1" max="45" step="1" value="6" />
+          <span class="area-unit">cm²</span>
+        </div>
+        <button type="button" class="btn btn-pink" id="applyTargetBtn">確定</button>
+      </div>
+
+      <div class="preset-group">
+        <span class="preset-label">快速選題：</span>
+        <button type="button" class="preset-chip active" data-area="6">6 cm²</button>
+        <button type="button" class="preset-chip" data-area="8">8 cm²</button>
+        <button type="button" class="preset-chip" data-area="10">10 cm²</button>
+        <button type="button" class="preset-chip" data-area="12">12 cm²</button>
+        <button type="button" class="preset-chip" id="randomMissionBtn">🎲 隨機出題</button>
+      </div>
+    </section>
+
+    <!-- 主工作區 -->
+    <main class="workspace">
+      <!-- 左欄：方格紙 -->
+      <section class="canvas-card">
+        <div class="canvas-header">
+          <div class="step-progress" id="drawStepBadge">
+            ✏️ 第 2 步：在方格紙畫 3 條直線（0 / 3 條）
+          </div>
+          <div class="unit-badge">
+            <span class="unit-square-icon"></span>
+            每格 = 1 cm²
+          </div>
+        </div>
+
+        <!-- 鈍角三角形挑戰提示 -->
+        <div class="obtuse-banner" id="obtuseBanner">
+          <span>🌟 <strong>進階挑戰：</strong>底邊已保留！請把第 3 點畫在<strong>底邊左右範圍外面</strong>！</span>
+          <button type="button" class="btn" id="exitObtuseBtn">結束挑戰</button>
+        </div>
+
+        <!-- 斜線或共線提醒 -->
+        <div class="gentle-banner" id="slantedWarningBanner">
+          <span id="slantedWarningText">
+            💡 提示：沒有水平或垂直的邊。建議擦掉重畫，第 1 條線先沿格線畫！
+          </span>
+          <button type="button" class="btn btn-pink" id="quickResetBaseBtn">擦掉重畫</button>
+        </div>
+
+        <div class="canvas-container">
+          <canvas id="gridCanvas" width="640" height="460"></canvas>
+        </div>
+
+        <div class="canvas-toolbar">
+          <div class="tool-left">
+            <button type="button" class="btn" id="undoLineBtn" disabled>↩ 復原上一條線</button>
+            <button type="button" class="btn" id="clearCanvasBtn" disabled>🧹 擦掉重畫</button>
+          </div>
+          <div class="tool-right">
+            <button type="button" class="btn btn-blue" id="toggleGhostBtn" style="display:none;">
+              👻 隱藏上次草稿
+            </button>
+            <button type="button" class="btn btn-yellow" id="toggleHeightGuideBtn">
+              📐 底和高：開
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 右欄：檢查與簡單提示 -->
+      <aside class="side-panel">
+        <div class="check-hero-card">
+          <div class="character-stage">
+            <div class="char-figure" id="activeCharBox"></div>
+            <div class="speech-bubble">
+              <span class="speech-speaker speaker-chii" id="speakerTag">小八貓</span>
+              <div id="charSpeechText">
+                請畫出面積是 <strong>6 cm²</strong> 的三角形！
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn big-check-btn" id="checkAnswerBtn" disabled>
+            🔍 先畫 3 條直線圍成三角形
+          </button>
+        </div>
+
+        <div class="feedback-box" id="feedbackBox">
+          <div class="status-pill status-wait" id="statusPill">
+            ⏳ 等待檢查答案
+          </div>
+          <div id="feedbackBody">
+            <p style="font-size:0.92rem; color:var(--ink-muted); font-weight:700;">
+              1. 先沿橫線或直線畫「底」。<br/>
+              2. 畫滿 3 條線後，按上方粉紅色按鈕檢查！
+            </p>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <!-- 答對彈出獎勵卡視窗 (1.png) -->
+  <div class="reward-modal-backdrop" id="rewardModal">
+    <div class="reward-modal-card">
+      <div class="reward-modal-title">🎉 太棒了！回答完全正確！</div>
+      <div class="reward-modal-sub">👏 表現好出色！可以向老師換取一張獎勵卡！</div>
+      <div class="reward-img-box">
+        <img src="1.png" alt="品德好學生表揚卡 (1.png)" onerror="this.style.display='none'; document.getElementById('imgFallbackNote').style.display='block';" />
+        <div id="imgFallbackNote" style="display:none; padding:24px 12px; color:#be185d; font-weight:800;">
+          🏅 品德好學生表揚卡 (1.png)<br/>
+          <span style="font-size:0.82rem; color:#7c6553;">（請確保 1.png 與此網頁放在同一個資料夾內）</span>
+        </div>
+      </div>
+      <button type="button" class="btn btn-pink" id="closeRewardModalBtn" style="width:100%; justify-content:center; font-size:1.05rem; padding:10px;">
+        ✨ 太好了！繼續挑戰下一題
+      </button>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const canvas = document.getElementById("gridCanvas");
+      const ctx = canvas.getContext("2d");
+      const COLS = 14;
+      const ROWS = 10;
+      const CELL = 40;
+      const PAD_LEFT = 44;
+      const PAD_TOP = 28;
+
+      let targetArea = 6;
+      let vertices = [];
+      let isTriangleClosed = false;
+      let hoverGridPt = null;
+      let isPointerDragging = false;
+      let pointerDownPt = null;
+
+      let showBaseHeightGuide = true;
+      let revealExactNumbersOnCanvas = false;
+      let ghostDraft = null;
+      let showGhostDraft = true;
+
+      let obtuseChallengeMode = false;
+      let lockedBaseVertices = null;
+      let stampCount = 0;
+
+      const targetAreaInput = document.getElementById("targetAreaInput");
+      const applyTargetBtn = document.getElementById("applyTargetBtn");
+      const presetChips = document.querySelectorAll(".preset-chip[data-area]");
+      const randomMissionBtn = document.getElementById("randomMissionBtn");
+      const drawStepBadge = document.getElementById("drawStepBadge");
+      const undoLineBtn = document.getElementById("undoLineBtn");
+      const clearCanvasBtn = document.getElementById("clearCanvasBtn");
+      const toggleGhostBtn = document.getElementById("toggleGhostBtn");
+      const toggleHeightGuideBtn = document.getElementById("toggleHeightGuideBtn");
+      const checkAnswerBtn = document.getElementById("checkAnswerBtn");
+      const activeCharBox = document.getElementById("activeCharBox");
+      const speakerTag = document.getElementById("speakerTag");
+      const charSpeechText = document.getElementById("charSpeechText");
+      const statusPill = document.getElementById("statusPill");
+      const feedbackBody = document.getElementById("feedbackBody");
+      const stampCountEl = document.getElementById("stampCount");
+      const slantedWarningBanner = document.getElementById("slantedWarningBanner");
+      const slantedWarningText = document.getElementById("slantedWarningText");
+      const quickResetBaseBtn = document.getElementById("quickResetBaseBtn");
+      const obtuseBanner = document.getElementById("obtuseBanner");
+      const exitObtuseBtn = document.getElementById("exitObtuseBtn");
+
+      const rewardModal = document.getElementById("rewardModal");
+      const closeRewardModalBtn = document.getElementById("closeRewardModalBtn");
+      const viewRewardCardBtn = document.getElementById("viewRewardCardBtn");
+
+      closeRewardModalBtn.addEventListener("click", () => {
+        rewardModal.classList.remove("show");
+      });
+
+      viewRewardCardBtn.addEventListener("click", () => {
+        rewardModal.classList.add("show");
+      });
+
+      function getCharacterSVG(mood) {
+        if (mood === "happy_usagi") {
+          return `
+            <svg width="56" height="56" viewBox="0 0 64 64">
+              <rect x="17" y="3" width="9" height="22" rx="4.5" fill="#fef08a" stroke="#4a3728" stroke-width="3.2"/>
+              <rect x="38" y="3" width="9" height="22" rx="4.5" fill="#fef08a" stroke="#4a3728" stroke-width="3.2"/>
+              <circle cx="32" cy="38" r="20" fill="#fef08a" stroke="#4a3728" stroke-width="3.2"/>
+              <ellipse cx="19" cy="41" rx="4.2" ry="2.5" fill="#fca5a5"/>
+              <ellipse cx="45" cy="41" rx="4.2" ry="2.5" fill="#fca5a5"/>
+              <path d="M21 34 Q24 30 27 34" fill="none" stroke="#4a3728" stroke-width="2.8" stroke-linecap="round"/>
+              <path d="M37 34 Q40 30 43 34" fill="none" stroke="#4a3728" stroke-width="2.8" stroke-linecap="round"/>
+              <path d="M27 40 Q32 46 37 40 Z" fill="#f43f5e" stroke="#4a3728" stroke-width="2.2"/>
+            </svg>`;
+        }
+        if (mood === "thinking_hachi") {
+          return `
+            <svg width="56" height="56" viewBox="0 0 64 64">
+              <polygon points="12,24 16,8 27,18" fill="#7dd3fc" stroke="#4a3728" stroke-width="3.2" stroke-linejoin="round"/>
+              <polygon points="52,24 48,8 37,18" fill="#7dd3fc" stroke="#4a3728" stroke-width="3.2" stroke-linejoin="round"/>
+              <circle cx="32" cy="36" r="21" fill="#fff" stroke="#4a3728" stroke-width="3.2"/>
+              <path d="M13,27 Q24,25 32,16 Q40,25 51,27 A21,21 0 0,0 13,27 Z" fill="#7dd3fc"/>
+              <circle cx="24" cy="34" r="3" fill="#4a3728"/>
+              <circle cx="40" cy="34" r="3" fill="#4a3728"/>
+              <path d="M28 40 Q32 43 36 40" fill="none" stroke="#4a3728" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>`;
+        }
+        return `
+          <svg width="56" height="56" viewBox="0 0 64 64">
+            <circle cx="16" cy="16" r="9" fill="#fff" stroke="#4a3728" stroke-width="3.2"/>
+            <circle cx="48" cy="16" r="9" fill="#fff" stroke="#4a3728" stroke-width="3.2"/>
+            <circle cx="32" cy="35" r="22" fill="#fff" stroke="#4a3728" stroke-width="3.2"/>
+            <ellipse cx="19" cy="39" rx="4.5" ry="2.6" fill="#f9a8d4"/>
+            <ellipse cx="45" cy="39" rx="4.5" ry="2.6" fill="#f9a8d4"/>
+            <circle cx="24" cy="33" r="3" fill="#4a3728"/>
+            <circle cx="40" cy="33" r="3" fill="#4a3728"/>
+            <path d="M29 38 Q32 41 35 38" fill="none" stroke="#4a3728" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>`;
+      }
+
+      function setCharacterDialogue(mood, speakerName, speakerClass, htmlText) {
+        activeCharBox.innerHTML = getCharacterSVG(mood);
+        speakerTag.className = "speech-speaker " + speakerClass;
+        speakerTag.textContent = speakerName;
+        charSpeechText.innerHTML = htmlText;
+      }
+
+      function calcPolygonArea(pts) {
+        if (pts.length < 3) return 0;
+        const [A, B, C] = pts;
+        const val = Math.abs(A.x * (B.y - C.y) + B.x * (C.y - A.y) + C.x * (A.y - B.y)) / 2;
+        return Math.round(val * 100) / 100;
+      }
+
+      function analyzeTriangleGeometry(pts) {
+        if (pts.length < 3) return null;
+        const area = calcPolygonArea(pts);
+        if (area === 0) return { isCollinear: true, area: 0 };
+
+        const pairs = [[0, 1, 2], [1, 2, 0], [2, 0, 1]];
+        for (const [i1, i2, i3] of pairs) {
+          const p1 = pts[i1];
+          const p2 = pts[i2];
+          const apex = pts[i3];
+
+          if (p1.y === p2.y && p1.x !== p2.x) {
+            const baseLen = Math.abs(p2.x - p1.x);
+            const heightLen = Math.abs(apex.y - p1.y);
+            const minX = Math.min(p1.x, p2.x);
+            const maxX = Math.max(p1.x, p2.x);
+            const isOutsideHeight = apex.x < minX || apex.x > maxX;
+            const foot = { x: apex.x, y: p1.y };
+            const nearEnd = apex.x < minX ? { x: minX, y: p1.y } : { x: maxX, y: p1.y };
+            return {
+              isCollinear: false,
+              hasAxisBase: true,
+              orientation: "horizontal",
+              baseP1: p1,
+              baseP2: p2,
+              apex,
+              foot,
+              nearEnd,
+              baseLen,
+              heightLen,
+              isOutsideHeight,
+              area
+            };
+          }
+
+          if (p1.x === p2.x && p1.y !== p2.y) {
+            const baseLen = Math.abs(p2.y - p1.y);
+            const heightLen = Math.abs(apex.x - p1.x);
+            const minY = Math.min(p1.y, p2.y);
+            const maxY = Math.max(p1.y, p2.y);
+            const isOutsideHeight = apex.y < minY || apex.y > maxY;
+            const foot = { x: p1.x, y: apex.y };
+            const nearEnd = apex.y < minY ? { x: p1.x, y: minY } : { x: p1.x, y: maxY };
+            return {
+              isCollinear: false,
+              hasAxisBase: true,
+              orientation: "vertical",
+              baseP1: p1,
+              baseP2: p2,
+              apex,
+              foot,
+              nearEnd,
+              baseLen,
+              heightLen,
+              isOutsideHeight,
+              area
+            };
+          }
+        }
+        return { isCollinear: false, hasAxisBase: false, area };
+      }
+
+      function gridToPixel(gx, gy) {
+        return { px: PAD_LEFT + gx * CELL, py: PAD_TOP + gy * CELL };
+      }
+
+      function eventToGrid(e) {
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+        const clientX = e.touches && e.touches.length ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches && e.touches.length ? e.touches[0].clientY : e.clientY;
+        const px = (clientX - rect.left) * scaleX;
+        const py = (clientY - rect.top) * scaleY;
+        const gx = Math.round((px - PAD_LEFT) / CELL);
+        const gy = Math.round((py - PAD_TOP) / CELL);
+        return {
+          x: Math.max(0, Math.min(COLS, gx)),
+          y: Math.max(0, Math.min(ROWS, gy))
+        };
+      }
+
+      function samePt(a, b) {
+        return a && b && a.x === b.x && a.y === b.y;
+      }
+
+      function drawLabelPill(text, px, py, bgColor, borderColor, textColor) {
+        ctx.save();
+        ctx.font = "bold 13px 'PingFang HK', 'Microsoft JhengHei', sans-serif";
+        const padX = 9;
+        const h = 24;
+        const w = ctx.measureText(text).width + padX * 2;
+        ctx.fillStyle = bgColor;
+        ctx.strokeStyle = borderColor;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.roundRect(px - w / 2, py - h / 2, w, h, 8);
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = textColor;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(text, px, py + 0.5);
+        ctx.restore();
+      }
+
+      function drawRightAngleMarker(footPx, apexPx, baseRefPx, size = 11) {
+        const vx1 = Math.sign(apexPx.px - footPx.px) || 0;
+        const vy1 = Math.sign(apexPx.py - footPx.py) || 0;
+        let vx2 = Math.sign(baseRefPx.px - footPx.px) || 0;
+        let vy2 = Math.sign(baseRefPx.py - footPx.py) || 0;
+        if (vx2 === 0 && vy2 === 0) {
+          vx2 = vy1 !== 0 ? 1 : 0;
+          vy2 = vx1 !== 0 ? 1 : 0;
+        }
+        ctx.save();
+        ctx.strokeStyle = "#e11d48";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(footPx.px + vx1 * size, footPx.py + vy1 * size);
+        ctx.lineTo(footPx.px + vx1 * size + vx2 * size, footPx.py + vy1 * size + vy2 * size);
+        ctx.lineTo(footPx.px + vx2 * size, footPx.py + vy2 * size);
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      function renderCanvas() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        const unitCell = gridToPixel(0, ROWS - 1);
+        ctx.fillStyle = "rgba(56, 189, 248, 0.22)";
+        ctx.fillRect(unitCell.px, unitCell.py, CELL, CELL);
+        ctx.strokeStyle = "#0284c7";
+        ctx.lineWidth = 2;
+        ctx.strokeRect(unitCell.px, unitCell.py, CELL, CELL);
+        ctx.fillStyle = "#0369a1";
+        ctx.font = "bold 10px sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText("1 cm²", unitCell.px + CELL / 2, unitCell.py + CELL / 2 + 3);
+
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = "#e5d5c8";
+        for (let c = 0; c <= COLS; c++) {
+          const { px } = gridToPixel(c, 0);
+          ctx.beginPath();
+          ctx.moveTo(px, PAD_TOP);
+          ctx.lineTo(px, PAD_TOP + ROWS * CELL);
+          ctx.stroke();
+          ctx.fillStyle = "#8c7360";
+          ctx.font = "bold 11px sans-serif";
+          ctx.textAlign = "center";
+          ctx.fillText(c + " cm", px, PAD_TOP - 10);
+        }
+
+        for (let r = 0; r <= ROWS; r++) {
+          const { py } = gridToPixel(0, r);
+          ctx.beginPath();
+          ctx.moveTo(PAD_LEFT, py);
+          ctx.lineTo(PAD_LEFT + COLS * CELL, py);
+          ctx.stroke();
+          ctx.fillStyle = "#8c7360";
+          ctx.font = "bold 11px sans-serif";
+          ctx.textAlign = "right";
+          ctx.fillText(r + "", PAD_LEFT - 10, py + 4);
+        }
+
+        ctx.fillStyle = "#cbb6a6";
+        for (let c = 0; c <= COLS; c++) {
+          for (let r = 0; r <= ROWS; r++) {
+            const { px, py } = gridToPixel(c, r);
+            ctx.beginPath();
+            ctx.arc(px, py, 2.2, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+
+        // 上一次草稿殘影
+        if (ghostDraft && showGhostDraft && ghostDraft.vertices.length === 3) {
+          const gPts = ghostDraft.vertices.map((p) => gridToPixel(p.x, p.y));
+          ctx.save();
+          ctx.fillStyle = "rgba(148, 163, 184, 0.14)";
+          ctx.strokeStyle = "#94a3b8";
+          ctx.lineWidth = 2.2;
+          ctx.setLineDash([6, 5]);
+          ctx.beginPath();
+          ctx.moveTo(gPts[0].px, gPts[0].py);
+          ctx.lineTo(gPts[1].px, gPts[1].py);
+          ctx.lineTo(gPts[2].px, gPts[2].py);
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+          ctx.setLineDash([]);
+          const cx = (gPts[0].px + gPts[1].px + gPts[2].px) / 3;
+          const cy = (gPts[0].py + gPts[1].py + gPts[2].py) / 3;
+          drawLabelPill(`上次草稿：面積 ${ghostDraft.area} cm²`, cx, cy, "rgba(248,250,252,0.92)", "#94a3b8", "#475569");
+          ctx.restore();
+        }
+
+        // 鈍角延長線
+        if (obtuseChallengeMode && vertices.length >= 2) {
+          const A = vertices[0];
+          const B = vertices[1];
+          ctx.save();
+          ctx.strokeStyle = "#64748b";
+          ctx.lineWidth = 2;
+          ctx.setLineDash([5, 5]);
+          if (A.y === B.y) {
+            const { py } = gridToPixel(0, A.y);
+            ctx.beginPath();
+            ctx.moveTo(PAD_LEFT, py);
+            ctx.lineTo(PAD_LEFT + COLS * CELL, py);
+            ctx.stroke();
+          } else if (A.x === B.x) {
+            const { px } = gridToPixel(A.x, 0);
+            ctx.beginPath();
+            ctx.moveTo(px, PAD_TOP);
+            ctx.lineTo(px, PAD_TOP + ROWS * CELL);
+            ctx.stroke();
+          }
+          ctx.restore();
+        }
+
+        if (isTriangleClosed && vertices.length === 3) {
+          const pA = gridToPixel(vertices[0].x, vertices[0].y);
+          const pB = gridToPixel(vertices[1].x, vertices[1].y);
+          const pC = gridToPixel(vertices[2].x, vertices[2].y);
+
+          ctx.save();
+          ctx.fillStyle = "rgba(244, 114, 182, 0.22)";
+          ctx.strokeStyle = "#4a3728";
+          ctx.lineWidth = 3.5;
+          ctx.lineJoin = "round";
+          ctx.beginPath();
+          ctx.moveTo(pA.px, pA.py);
+          ctx.lineTo(pB.px, pB.py);
+          ctx.lineTo(pC.px, pC.py);
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+          ctx.restore();
+
+          const geo = analyzeTriangleGeometry(vertices);
+          if (showBaseHeightGuide && geo && geo.hasAxisBase) {
+            const bp1 = gridToPixel(geo.baseP1.x, geo.baseP1.y);
+            const bp2 = gridToPixel(geo.baseP2.x, geo.baseP2.y);
+            const apexPx = gridToPixel(geo.apex.x, geo.apex.y);
+            const footPx = gridToPixel(geo.foot.x, geo.foot.y);
+            const nearEndPx = gridToPixel(geo.nearEnd.x, geo.nearEnd.y);
+
+            if (geo.isOutsideHeight) {
+              ctx.save();
+              ctx.strokeStyle = "#64748b";
+              ctx.lineWidth = 2.2;
+              ctx.setLineDash([5, 5]);
+              ctx.beginPath();
+              ctx.moveTo(nearEndPx.px, nearEndPx.py);
+              ctx.lineTo(footPx.px, footPx.py);
+              ctx.stroke();
+              ctx.restore();
+            }
+
+            ctx.save();
+            ctx.strokeStyle = "#0284c7";
+            ctx.lineWidth = 5;
+            ctx.beginPath();
+            ctx.moveTo(bp1.px, bp1.py);
+            ctx.lineTo(bp2.px, bp2.py);
+            ctx.stroke();
+            ctx.restore();
+
+            ctx.save();
+            ctx.strokeStyle = "#e11d48";
+            ctx.lineWidth = 3;
+            ctx.setLineDash([6, 4]);
+            ctx.beginPath();
+            ctx.moveTo(apexPx.px, apexPx.py);
+            ctx.lineTo(footPx.px, footPx.py);
+            ctx.stroke();
+            ctx.restore();
+
+            drawRightAngleMarker(footPx, apexPx, bp1, 11);
+
+            const baseMidX = (bp1.px + bp2.px) / 2;
+            const baseMidY = (bp1.py + bp2.py) / 2;
+            const baseText = revealExactNumbersOnCanvas ? `底 = ${geo.baseLen} cm` : "底";
+            const heightText = revealExactNumbersOnCanvas ? `高 = ${geo.heightLen} cm` : "高";
+
+            drawLabelPill(baseText, baseMidX, baseMidY + (geo.orientation === "horizontal" ? 18 : 0), "#e0f2fe", "#0284c7", "#0369a1");
+            drawLabelPill(heightText, (apexPx.px + footPx.px) / 2 + (geo.orientation === "horizontal" ? 24 : 0), (apexPx.py + footPx.py) / 2, "#ffe4e6", "#e11d48", "#be123c");
+          }
+        } else {
+          if (vertices.length >= 2) {
+            ctx.save();
+            ctx.strokeStyle = "#0284c7";
+            ctx.lineWidth = 4;
+            ctx.lineCap = "round";
+            ctx.beginPath();
+            const p0 = gridToPixel(vertices[0].x, vertices[0].y);
+            const p1 = gridToPixel(vertices[1].x, vertices[1].y);
+            ctx.moveTo(p0.px, p0.py);
+            ctx.lineTo(p1.px, p1.py);
+            ctx.stroke();
+
+            if (vertices.length === 3) {
+              const p2 = gridToPixel(vertices[2].x, vertices[2].y);
+              ctx.lineTo(p2.px, p2.py);
+              ctx.stroke();
+            }
+            ctx.restore();
+          }
+
+          if (vertices.length > 0 && hoverGridPt) {
+            const lastPt = vertices[vertices.length - 1];
+            if (!samePt(lastPt, hoverGridPt) || (vertices.length === 3 && samePt(hoverGridPt, vertices[0]))) {
+              const fromPx = gridToPixel(lastPt.x, lastPt.y);
+              const toPx = gridToPixel(hoverGridPt.x, hoverGridPt.y);
+
+              ctx.save();
+              ctx.strokeStyle = "#ec4899";
+              ctx.lineWidth = 3;
+              ctx.setLineDash([6, 4]);
+              ctx.beginPath();
+              ctx.moveTo(fromPx.px, fromPx.py);
+              ctx.lineTo(toPx.px, toPx.py);
+              ctx.stroke();
+              ctx.restore();
+            }
+          }
+        }
+
+        const labels = ["A", "B", "C"];
+        vertices.forEach((pt, idx) => {
+          const { px, py } = gridToPixel(pt.x, pt.y);
+          if (!isTriangleClosed && vertices.length === 3 && idx === 0) {
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(px, py, 14, 0, Math.PI * 2);
+            ctx.fillStyle = "rgba(244, 114, 182, 0.28)";
+            ctx.fill();
+            ctx.restore();
+          }
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(px, py, 8, 0, Math.PI * 2);
+          ctx.fillStyle = idx === 0 ? "#f472b6" : idx === 1 ? "#38bdf8" : "#facc15";
+          ctx.strokeStyle = "#4a3728";
+          ctx.lineWidth = 2.5;
+          ctx.fill();
+          ctx.stroke();
+          ctx.fillStyle = "#4a3728";
+          ctx.font = "bold 12px sans-serif";
+          ctx.textAlign = "center";
+          ctx.fillText(labels[idx], px, py - 13);
+          ctx.restore();
+        });
+      }
+
+      function updateDrawingProgressUI() {
+        undoLineBtn.disabled = vertices.length === 0 || (obtuseChallengeMode && vertices.length <= 2 && !isTriangleClosed);
+        clearCanvasBtn.disabled = vertices.length === 0;
+        slantedWarningBanner.classList.remove("show");
+
+        if (!isTriangleClosed) {
+          checkAnswerBtn.disabled = true;
+          if (vertices.length === 0) {
+            drawStepBadge.textContent = "✏️ 第 2 步：點選格線交點畫第 1 條線（0 / 3 條）";
+            checkAnswerBtn.textContent = "🔍 先畫 3 條直線圍成三角形";
+          } else if (vertices.length === 1) {
+            drawStepBadge.textContent = "✏️ 點選第 2 個點完成第 1 條線";
+          } else if (vertices.length === 2) {
+            drawStepBadge.textContent = "✏️ 點選第 3 個頂點 C（1 / 3 條）";
+          } else if (vertices.length === 3) {
+            drawStepBadge.textContent = "✏️ 點起點 A 連回三角形，或直接按右方「檢查答案」！";
+            checkAnswerBtn.disabled = false;
+            checkAnswerBtn.textContent = "✅ 檢查答案";
+          }
+          return;
+        }
+
+        drawStepBadge.textContent = "✅ 已完成三角形！請按右方「檢查答案」";
+        checkAnswerBtn.disabled = false;
+        checkAnswerBtn.textContent = "✅ 第 3 步：檢查答案";
+
+        const geo = analyzeTriangleGeometry(vertices);
+        if (geo && geo.isCollinear) {
+          slantedWarningText.textContent = "⚠️ 三點排成一直線，請擦掉重畫！";
+          slantedWarningBanner.classList.add("show");
+        } else if (geo && !geo.hasAxisBase) {
+          slantedWarningText.textContent = "💡 沒有水平或垂直的邊，建議擦掉重畫！";
+          slantedWarningBanner.classList.add("show");
+        }
+      }
+
+      function handleAddPoint(pt) {
+        if (isTriangleClosed) return;
+        if (vertices.length === 0) {
+          vertices.push(pt);
+        } else if (vertices.length === 1) {
+          if (!samePt(pt, vertices[0])) vertices.push(pt);
+        } else if (vertices.length === 2) {
+          if (!samePt(pt, vertices[0]) && !samePt(pt, vertices[1])) vertices.push(pt);
+        } else if (vertices.length === 3) {
+          if (samePt(pt, vertices[0])) isTriangleClosed = true;
+        }
+        updateDrawingProgressUI();
+        renderCanvas();
+      }
+
+      canvas.addEventListener("pointerdown", (e) => {
+        e.preventDefault();
+        if (isTriangleClosed) return;
+        const pt = eventToGrid(e);
+        hoverGridPt = pt;
+        pointerDownPt = pt;
+        isPointerDragging = true;
+        handleAddPoint(pt);
+      });
+
+      canvas.addEventListener("pointermove", (e) => {
+        hoverGridPt = eventToGrid(e);
+        renderCanvas();
+      });
+
+      canvas.addEventListener("pointerup", (e) => {
+        if (!isPointerDragging) return;
+        isPointerDragging = false;
+        if (isTriangleClosed) return;
+        const upPt = eventToGrid(e);
+        if (pointerDownPt && !samePt(pointerDownPt, upPt)) {
+          handleAddPoint(upPt);
+        }
+        pointerDownPt = null;
+      });
+
+      function saveCurrentAsGhostDraft() {
+        if (vertices.length === 3) {
+          const geo = analyzeTriangleGeometry(vertices);
+          if (geo && !geo.isCollinear) {
+            ghostDraft = {
+              vertices: vertices.map((v) => ({ x: v.x, y: v.y })),
+              area: geo.area
+            };
+            showGhostDraft = true;
+            toggleGhostBtn.style.display = "inline-flex";
+            toggleGhostBtn.textContent = "👻 隱藏上次草稿";
+          }
+        }
+      }
+
+      function resetDrawingKeepDraft(keepObtuseBase = false) {
+        saveCurrentAsGhostDraft();
+        revealExactNumbersOnCanvas = false;
+        isTriangleClosed = false;
+        if (keepObtuseBase && lockedBaseVertices && lockedBaseVertices.length === 2) {
+          vertices = [
+            { x: lockedBaseVertices[0].x, y: lockedBaseVertices[0].y },
+            { x: lockedBaseVertices[1].x, y: lockedBaseVertices[1].y }
+          ];
+        } else {
+          vertices = [];
+        }
+        updateDrawingProgressUI();
+        renderCanvas();
+      }
+
+      undoLineBtn.addEventListener("click", () => {
+        revealExactNumbersOnCanvas = false;
+        if (isTriangleClosed) {
+          isTriangleClosed = false;
+        } else if (vertices.length > 0) {
+          if (obtuseChallengeMode && vertices.length <= 2) return;
+          vertices.pop();
+        }
+        updateDrawingProgressUI();
+        renderCanvas();
+      });
+
+      clearCanvasBtn.addEventListener("click", () => {
+        resetDrawingKeepDraft(obtuseChallengeMode);
+      });
+
+      quickResetBaseBtn.addEventListener("click", () => {
+        resetDrawingKeepDraft(false);
+      });
+
+      toggleGhostBtn.addEventListener("click", () => {
+        showGhostDraft = !showGhostDraft;
+        toggleGhostBtn.textContent = showGhostDraft ? "👻 隱藏上次草稿" : "👻 顯示上次草稿";
+        renderCanvas();
+      });
+
+      toggleHeightGuideBtn.addEventListener("click", () => {
+        showBaseHeightGuide = !showBaseHeightGuide;
+        toggleHeightGuideBtn.textContent = `📐 底和高：${showBaseHeightGuide ? "開" : "關"}`;
+        renderCanvas();
+      });
+
+      exitObtuseBtn.addEventListener("click", () => {
+        obtuseChallengeMode = false;
+        lockedBaseVertices = null;
+        obtuseBanner.classList.remove("show");
+        resetDrawingKeepDraft(false);
+      });
+
+      // 檢查答案
+      checkAnswerBtn.addEventListener("click", () => {
+        if (vertices.length === 3 && !isTriangleClosed) {
+          isTriangleClosed = true;
+          updateDrawingProgressUI();
+        }
+        if (!isTriangleClosed || vertices.length !== 3) return;
+
+        const geo = analyzeTriangleGeometry(vertices);
+
+        if (!geo || geo.isCollinear) {
+          statusPill.className = "status-pill status-retry";
+          statusPill.textContent = "⚠️ 3 點排成一直線，請重畫！";
+          renderCanvas();
+          return;
+        }
+
+        if (!geo.hasAxisBase) {
+          statusPill.className = "status-pill status-retry";
+          statusPill.textContent = "💡 請先沿橫線或直線畫「底」";
+          feedbackBody.innerHTML = `
+            <div class="guide-step step-yellow">
+              <p>先把第 1 條線畫在橫線或直線上，更容易找出底和高！</p>
+              <button type="button" class="btn btn-pink" id="guideResetSlopeBtn">🧹 擦掉重畫</button>
+            </div>
+          `;
+          document.getElementById("guideResetSlopeBtn").addEventListener("click", () => {
+            resetDrawingKeepDraft(false);
+          });
+          renderCanvas();
+          return;
+        }
+
+        const isAreaCorrect = Math.abs(geo.area - targetArea) < 0.001;
+
+        if (obtuseChallengeMode && isAreaCorrect && !geo.isOutsideHeight) {
+          statusPill.className = "status-pill status-retry";
+          statusPill.textContent = "✨ 面積對了，但請把第 3 點畫在底邊範圍外！";
+          renderCanvas();
+          return;
+        }
+
+        // 答對：顯示算式並彈出獎勵卡 (1.png) 視窗
+        if (isAreaCorrect) {
+          revealExactNumbersOnCanvas = true;
+          stampCount++;
+          stampCountEl.textContent = stampCount;
+          viewRewardCardBtn.style.display = "inline-flex";
+
+          statusPill.className = "status-pill status-ok";
+          statusPill.textContent = "🎉 答對了！";
+
+          setCharacterDialogue(
+            "happy_usagi",
+            "吉伊卡哇 & 兔兔",
+            "speaker-usagi",
+            `答對了！底 ${geo.baseLen} cm，高 ${geo.heightLen} cm，面積是 <strong>${targetArea} cm²</strong>！`
+          );
+
+          feedbackBody.innerHTML = `
+            <div class="stamp-victory">
+              <div class="formula-badge">
+                ${geo.baseLen} × ${geo.heightLen} ÷ 2 = ${geo.area} cm²
+              </div>
+              <button type="button" class="btn btn-pink" id="openCardAgainBtn" style="margin-top:4px;">
+                🎁 顯示獎勵卡向老師換領
+              </button>
+            </div>
+
+            <div class="obtuse-unlock-card">
+              <div style="font-weight:900; font-size:0.9rem; margin-bottom:6px;">
+                ★ 進階挑戰：高在圖形外的鈍角三角形
+              </div>
+              <div style="display:flex; flex-wrap:wrap; gap:6px;">
+                <button type="button" class="btn btn-yellow" id="startObtuseChallengeBtn">
+                  🚀 挑戰鈍角三角形
+                </button>
+                <button type="button" class="btn" id="drawAnotherComboBtn">
+                  ✏️ 再畫另一個
+                </button>
+              </div>
+            </div>
+          `;
+
+          document.getElementById("openCardAgainBtn").addEventListener("click", () => {
+            rewardModal.classList.add("show");
+          });
+
+          document.getElementById("startObtuseChallengeBtn").addEventListener("click", () => {
+            obtuseChallengeMode = true;
+            lockedBaseVertices = [
+              { x: geo.baseP1.x, y: geo.baseP1.y },
+              { x: geo.baseP2.x, y: geo.baseP2.y }
+            ];
+            obtuseBanner.classList.add("show");
+            resetDrawingKeepDraft(true);
+          });
+
+          document.getElementById("drawAnotherComboBtn").addEventListener("click", () => {
+            obtuseChallengeMode = false;
+            lockedBaseVertices = null;
+            obtuseBanner.classList.remove("show");
+            resetDrawingKeepDraft(false);
+          });
+
+          renderCanvas();
+          // 彈出獎勵卡視窗
+          rewardModal.classList.add("show");
+          return;
+        }
+
+        // 答錯：精簡版三步提示（照顧弱生）
+        revealExactNumbersOnCanvas = false;
+        const diffType = geo.area > targetArea ? "太大" : "太小";
+        const doubleTarget = Math.round(targetArea * 2);
+
+        statusPill.className = "status-pill status-retry";
+        statusPill.textContent = `❌ 面積不對（目前畫了 ${geo.area} cm²，${diffType}了）`;
+
+        setCharacterDialogue(
+          "thinking_hachi",
+          "小八貓",
+          "speaker-hachi",
+          `你畫了 <strong>${geo.area} cm²</strong>（<strong>${diffType}</strong>）。目標是 <strong>${targetArea} cm²</strong>，跟住下面一步步試下！`
+        );
+
+        const adjustText = geo.area > targetArea
+          ? "面積太大 ➔ 把「底」或「高」<strong>畫短一點</strong>！"
+          : "面積太小 ➔ 把「底」或「高」<strong>畫長一點</strong>！";
+
+        feedbackBody.innerHTML = `
+          <div class="guide-step step-pink">
+            <div class="guide-step-title">🐾 提示 1：先算「底 × 高」</div>
+            <p>底 × 高 ÷ 2 = ${targetArea}，未除以 2 之前：</p>
+            <div class="inline-quiz">
+              <span>底 × 高 =</span>
+              <input type="number" step="1" class="mini-input" id="quizProductInput" placeholder="?" />
+              <button type="button" class="btn btn-pink" id="checkProductBtn">核對</button>
+            </div>
+            <div class="quiz-msg" id="quizProductMsg"></div>
+          </div>
+
+          <div class="guide-step">
+            <div class="guide-step-title">📐 提示 2：你現在畫了幾長？</div>
+            <div class="inline-quiz">
+              <span>底 =</span>
+              <input type="number" step="1" class="mini-input" id="quizCurrBase" placeholder="?" />
+              <span>cm，高 =</span>
+              <input type="number" step="1" class="mini-input" id="quizCurrHeight" placeholder="?" />
+              <span>cm</span>
+              <button type="button" class="btn btn-blue" id="checkCurrBHBtn">核對</button>
+            </div>
+            <div class="quiz-msg" id="quizCurrBHMsg"></div>
+          </div>
+
+          <div class="guide-step step-yellow">
+            <div class="guide-step-title">💡 提示 3：點樣改？</div>
+            <p>${adjustText}</p>
+            <button type="button" class="btn btn-yellow" id="eraseWithGhostBtn">
+              🧹 擦掉重畫（保留草稿對照）
+            </button>
+          </div>
+        `;
+
+        document.getElementById("checkProductBtn").addEventListener("click", () => {
+          const val = parseInt(document.getElementById("quizProductInput").value, 10);
+          const msgEl = document.getElementById("quizProductMsg");
+          if (val === doubleTarget) {
+            msgEl.className = "quiz-msg ok";
+            msgEl.textContent = `✓ 答對！只要「底 × 高 = ${doubleTarget}」就得！`;
+          } else {
+            msgEl.className = "quiz-msg err";
+            msgEl.textContent = `再試下：計下 ${targetArea} × 2 等於幾多？`;
+          }
+        });
+
+        document.getElementById("checkCurrBHBtn").addEventListener("click", () => {
+          const bVal = parseFloat(document.getElementById("quizCurrBase").value);
+          const hVal = parseFloat(document.getElementById("quizCurrHeight").value);
+          const msgEl = document.getElementById("quizCurrBHMsg");
+          const match =
+            (Math.abs(bVal - geo.baseLen) < 0.01 && Math.abs(hVal - geo.heightLen) < 0.01) ||
+            (Math.abs(bVal - geo.heightLen) < 0.01 && Math.abs(hVal - geo.baseLen) < 0.01);
+
+          if (match) {
+            revealExactNumbersOnCanvas = true;
+            renderCanvas();
+            msgEl.className = "quiz-msg ok";
+            msgEl.textContent = `✓ 啱喇！現在底是 ${geo.baseLen} cm，高是 ${geo.heightLen} cm。`;
+          } else {
+            msgEl.className = "quiz-msg err";
+            msgEl.textContent = "未啱喎，再睇下藍線（底）同紅線（高）有幾長？";
+          }
+        });
+
+        document.getElementById("eraseWithGhostBtn").addEventListener("click", () => {
+          resetDrawingKeepDraft(obtuseChallengeMode);
+        });
+
+        renderCanvas();
+      });
+
+      function setMissionTargetArea(newArea) {
+        const parsed = parseInt(newArea, 10);
+        if (isNaN(parsed) || parsed < 1 || parsed > 45) {
+          alert("請輸入 1 至 45 的正整數！");
+          return;
+        }
+        targetArea = parsed;
+        targetAreaInput.value = targetArea;
+
+        presetChips.forEach((chip) => {
+          chip.classList.toggle("active", parseInt(chip.dataset.area, 10) === targetArea);
+        });
+
+        vertices = [];
+        isTriangleClosed = false;
+        revealExactNumbersOnCanvas = false;
+        ghostDraft = null;
+        toggleGhostBtn.style.display = "none";
+        obtuseChallengeMode = false;
+        lockedBaseVertices = null;
+        obtuseBanner.classList.remove("show");
+
+        statusPill.className = "status-pill status-wait";
+        statusPill.textContent = "⏳ 等待檢查答案";
+        feedbackBody.innerHTML = `
+          <p style="font-size:0.92rem; color:var(--ink-muted); font-weight:700;">
+            1. 先沿橫線或直線畫「底」。<br/>
+            2. 畫滿 3 條線後，按上方粉紅色按鈕檢查！
+          </p>
+        `;
+
+        setCharacterDialogue(
+          "default_chii",
+          "小八貓",
+          "speaker-chii",
+          `請畫出面積是 <strong>${targetArea} cm²</strong> 的三角形！`
+        );
+
+        updateDrawingProgressUI();
+        renderCanvas();
+      }
+
+      applyTargetBtn.addEventListener("click", () => {
+        setMissionTargetArea(targetAreaInput.value);
+      });
+
+      targetAreaInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") setMissionTargetArea(targetAreaInput.value);
+      });
+
+      presetChips.forEach((chip) => {
+        chip.addEventListener("click", () => setMissionTargetArea(chip.dataset.area));
+      });
+
+      randomMissionBtn.addEventListener("click", () => {
+        const pool = [4, 6, 8, 9, 10, 12, 15, 16, 18, 20];
+        setMissionTargetArea(pool[Math.floor(Math.random() * pool.length)]);
+      });
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlTarget = parseInt(urlParams.get("target"), 10);
+      if (!isNaN(urlTarget) && urlTarget >= 1 && urlTarget <= 45) {
+        setMissionTargetArea(urlTarget);
+      } else {
+        setMissionTargetArea(6);
+      }
+    })();
+  </script>
+</body>
+</html>
